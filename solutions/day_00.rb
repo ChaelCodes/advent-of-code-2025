@@ -20,8 +20,8 @@ class Day00
   end
 
   def parse_records
-    records.each do |record|
-      self.records = PARSE_REGEX.match(record)
+    self.records.map! do |record|
+      PARSE_REGEX.match(record)
     end
   end
 
