@@ -1,5 +1,8 @@
 RSpec.describe Day00 do
   let(:solution) { described_class.new }
+  let(:example_input) do
+    []
+  end
 
   describe "#inputs" do
     subject { solution.inputs }
@@ -15,7 +18,7 @@ RSpec.describe Day00 do
     subject { solution.parse_records }
 
     before do
-      solution.records = []
+      solution.records = example_input
     end
 
     it "parses records" do
@@ -28,6 +31,14 @@ RSpec.describe Day00 do
     subject { solution.solve }
 
     context "for part 1" do
+      context "with example input" do
+        before do
+          solution.records = example_input
+        end
+
+        it { is_expected.to eq 0 }
+      end
+
       context "with input file", :with_input_file do
         it { is_expected.to eq 0 }
       end
@@ -35,6 +46,14 @@ RSpec.describe Day00 do
 
     xcontext "for part 2" do
       let(:solution) { described_class.new(part: 2) }
+
+      context "with example input" do
+        before do
+          solution.records = example_input
+        end
+
+        it { is_expected.to eq 0 }
+      end
 
       context "with input file", :with_input_file do
         it { is_expected.to eq 0 }
